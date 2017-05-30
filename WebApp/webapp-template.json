@@ -10,15 +10,6 @@
 		},
 		"servicePlanName": {
 			"type": "string"
-		},
-		"environmentName": {
-			"type": "string"
-		},
-		"webappSettingsTemplateUri": {
-			"type": "string"
-		},
-		"webappSettingsParametersUri": {
-			"type": "string"
 		}
 	},
 	"variables": {},
@@ -33,8 +24,7 @@
 		},
 		"properties": {
 			"name": "[parameters('webappName')]",
-			"serverFarmId": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', parameters('servicePlanResourceGroupName'), '/providers/', 'Microsoft.Web/serverfarms/', parameters('servicePlanName'))]",
-			"hostingEnvironment": "[parameters('environmentName')]",
+			"serverFarmId": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', parameters('servicePlanResourceGroupName'), '/providers/', 'Microsoft.Web/serverfarms/', parameters('servicePlanName'))]",			
 			"clientAffinityEnabled": false,
 			"siteConfig": {
 				"AlwaysOn": true,
@@ -45,25 +35,8 @@
 				"javaVersion": null
 			}
 		},
-		"resources": [{
-			"name": "[concat('linkedTemplateChildResources', '-', uniqueString(parameters('webappName')))]",
-			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2015-01-01",
-			"dependsOn": [
-				"[parameters('webappName')]"
-			],
-			"properties": {
-				"mode": "Incremental",
-				"templateLink": {
-					"uri": "[parameters('webappSettingsTemplateUri')]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parametersLink": {
-					"uri": "[parameters('webappSettingsParametersUri')]",
-					"contentVersion": "1.0.0.0"
-				}
-			}
-		}]
+		"resources": []	
+		
 	}],
 	"outputs": {
 		"webapp": {

@@ -10,15 +10,6 @@
         },
         "servicePlanName": {
             "value": "#{WEBAPP_SERVICE_PLAN_NAME}#"
-        },
-        "environmentName": {
-            "value": "#{WEBAPP_ENVIRONMENT_NAME}#"
-        },
-        "webappSettingsTemplateUri": {
-            "value": "#{STORAGE_CONTAINER_URI}##{TEMPLATE_WEBAPP_SETTINGS}##{STORAGE_CONTAINER_SAS_TOKEN}#"
-        },
-        "webappSettingsParametersUri": {
-            "value": "#{STORAGE_CONTAINER_URI}##{PARAMETERS_WEBAPP_SETTINGS}##{STORAGE_CONTAINER_SAS_TOKEN}#"
         }
     }
 }
